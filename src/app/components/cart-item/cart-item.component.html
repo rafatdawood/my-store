@@ -1,0 +1,9 @@
+<div class="cart-item">
+  <img src='{{it.url}}'>
+  <div class="cart-panel">
+    <div class="">{{ it.name}}</div>
+    <div>{{ it.price | currency: "USD" }}</div>
+    <input type='number' [(ngModel)]="amount" (ngModelChange)="selectChange(it)" class='number-input'
+      [value]="amount" />
+  </div>
+</div>

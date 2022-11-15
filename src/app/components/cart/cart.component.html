@@ -1,0 +1,15 @@
+<div *ngIf="ct.length; else empty" class="cart-container">
+  <div class="cart-item-details">
+    <app-cart-item *ngFor="let item of ct" [ca]="ct" [it]="item" (change)="calculateTotal()">
+    </app-cart-item>
+    <div class="cart-item"><b>Total Price: {{ tp | currency: "USD" }}</b></div>
+  </div>
+  <div class="cart-item-details">
+    <app-user-data-form (e)="onSubmit($event)"></app-user-data-form>
+  </div>
+</div>
+<ng-template #empty>
+  <div class="empty-cart-message">
+    Cart is Empty! try to &nbsp; <a routerLink="/"> add product to cart</a>.
+  </div>
+</ng-template>
